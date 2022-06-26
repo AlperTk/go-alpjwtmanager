@@ -1,6 +1,6 @@
 package tokenManager
 
-type TokenManager interface {
+type AlpTokenManager interface {
 	GetBearerToken() (string, error)
 	RefreshToken() error
 	ClearToken()

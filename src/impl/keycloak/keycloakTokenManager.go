@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey string) tokenManager.TokenManager {
+func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey string) tokenManager.AlpTokenManager {
 	return &tokenManagerKeycloak{
 		openIdConnectTokenUrl: openIdConnectTokenUrl,
 		clientId:              clientId,
@@ -21,7 +21,7 @@ func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey st
 	}
 }
 
-func NewTokenManagerWithCustomClient(openIdConnectTokenUrl string, clientId string, secretKey string, client *http.Client) tokenManager.TokenManager {
+func NewTokenManagerWithCustomClient(openIdConnectTokenUrl string, clientId string, secretKey string, client *http.Client) tokenManager.AlpTokenManager {
 	return &tokenManagerKeycloak{
 		openIdConnectTokenUrl: openIdConnectTokenUrl,
 		clientId:              clientId,
