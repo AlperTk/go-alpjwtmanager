@@ -2,8 +2,7 @@ package keycloak
 
 import (
 	"encoding/json"
-	"errors"
-	tokenManager "github.com/AlperTk/jwt-token-creator/src"
+	tokenManager "github.com/AlperTk/go-alpjwtmanager/src"
 	"github.com/Masterminds/log-go"
 	"io"
 	"net/http"
@@ -125,10 +124,9 @@ func (t *tokenManagerKeycloak) requestToken(data url.Values) error {
 		if err != nil {
 			return err
 		}
-		json.Unmarshal(bodyBytes, t.responseModel)
+		_ = json.Unmarshal(bodyBytes, t.responseModel)
 		t.responseModel.ExpiredAt = time.Now().Unix() + t.responseModel.ExpiresIn
 		t.responseModel.RefreshExpiredAt = time.Now().Unix() + t.responseModel.RefreshExpiresIn
 		return nil
 	}
-	return errors.New("get token unknown error")
 }

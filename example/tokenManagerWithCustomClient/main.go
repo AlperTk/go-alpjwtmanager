@@ -2,15 +2,14 @@ package main
 
 import (
 	"crypto/tls"
-	"github.com/AlperTk/jwt-token-creator/src/impl/keycloak"
+	"github.com/AlperTk/go-alpjwtmanager/src/impl/keycloak"
 	"net/http"
-	"time"
 )
 
 func main() {
 
 	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true}, // <--- Problem
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true}, // Disables unknown certificate verification, it's not safe use this for testing purposes
 	}
 	client := &http.Client{Transport: tr}
 
@@ -20,8 +19,6 @@ func main() {
 		"BMxjKIYZxqc3rJwWEci8TPO40mjVccls",
 		client,
 	)
-	for {
-		tokenManager.GetBearerToken()
-		time.Sleep(2 * time.Second)
-	}
+
+	_, _ = tokenManager.GetBearerToken()
 }
