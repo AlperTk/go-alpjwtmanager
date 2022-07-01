@@ -1,4 +1,4 @@
-package keycloak
+package jwt_token_creator
 
 type TokenResponseModel struct {
 	AccessToken      string `json:"access_token"`

@@ -1,8 +1,7 @@
-package keycloak
+package jwt_token_creator
 
 import (
 	"encoding/json"
-	tokenManager "github.com/AlperTk/go-alpjwtmanager/src"
 	"github.com/Masterminds/log-go"
 	"io"
 	"net/http"
@@ -11,7 +10,7 @@ import (
 	"time"
 )
 
-func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey string) tokenManager.AlpTokenManager {
+func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey string) AlpTokenManager {
 	return &tokenManagerKeycloak{
 		openIdConnectTokenUrl: openIdConnectTokenUrl,
 		clientId:              clientId,
@@ -21,7 +20,7 @@ func NewTokenManager(openIdConnectTokenUrl string, clientId string, secretKey st
 	}
 }
 
-func NewTokenManagerWithCustomClient(openIdConnectTokenUrl string, clientId string, secretKey string, client *http.Client) tokenManager.AlpTokenManager {
+func NewTokenManagerWithCustomClient(openIdConnectTokenUrl string, clientId string, secretKey string, client *http.Client) AlpTokenManager {
 	return &tokenManagerKeycloak{
 		openIdConnectTokenUrl: openIdConnectTokenUrl,
 		clientId:              clientId,

@@ -2,7 +2,7 @@ package main
 
 import (
 	"crypto/tls"
-	"github.com/AlperTk/go-alpjwtmanager/src/impl/keycloak"
+	"github.com/AlperTk/go-alpjwtmanager"
 	"net/http"
 )
 
@@ -13,7 +13,7 @@ func main() {
 	}
 	client := &http.Client{Transport: tr}
 
-	var tokenManager = keycloak.NewTokenManagerWithCustomClient(
+	var tokenManager = jwt_token_creator.NewTokenManagerWithCustomClient(
 		"https://localhost:8443/auth/realms/marsrealm/protocol/openid-connect/token",
 		"vpncontroller",
 		"BMxjKIYZxqc3rJwWEci8TPO40mjVccls",
