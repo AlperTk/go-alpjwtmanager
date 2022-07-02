@@ -2,7 +2,7 @@ package main
 
 import (
 	"crypto/tls"
-	"github.com/AlperTk/go-alpjwtmanager"
+	jwt_token_creator "github.com/AlperTk/go-alpjwtmanager/pkg/v3"
 	"net/http"
 )
 
