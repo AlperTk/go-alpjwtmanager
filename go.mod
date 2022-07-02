@@ -1,4 +1,4 @@
-module github.com/AlperTk/go-alpjwtmanager/pkg/v3
+module github.com/AlperTk/go-alpjwtmanager/v4
 
 go 1.18
 

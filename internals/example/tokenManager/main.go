@@ -1,6 +1,6 @@
 package main
 
-import jwt_token_creator "github.com/AlperTk/go-alpjwtmanager/pkg/v3"
+import jwt_token_creator "github.com/AlperTk/go-alpjwtmanager/v4"
 
 func main() {
 	var tokenManager = jwt_token_creator.NewTokenManager(
