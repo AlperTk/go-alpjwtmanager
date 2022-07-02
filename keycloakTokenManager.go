@@ -1,4 +1,4 @@
-package jwt_token_creator
+package tokenmanager
 
 import (
 	"encoding/json"

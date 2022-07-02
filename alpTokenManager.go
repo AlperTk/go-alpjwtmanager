@@ -1,4 +1,4 @@
-package jwt_token_creator
+package tokenmanager
 
 type AlpTokenManager interface {
 	GetBearerToken() (string, error)

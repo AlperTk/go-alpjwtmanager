@@ -1,4 +1,4 @@
-package jwt_token_creator
+package tokenmanager
 
 type TokenResponseModel struct {
 	AccessToken      string `json:"access_token"`
