@@ -5,12 +5,10 @@
 ```golang
 package main
 
-import (
-	"github.com/AlperTk/go-alpjwtmanager"
-)
+import "github.com/AlperTk/go-alpjwtmanager/v4"
 
 func main() {
-	var tokenManager = jwt_token_creator.NewTokenManager(
+	var tokenManager = tokenmanager.NewTokenManager(
 		"https://localhost:8443/auth/realms/marsrealm/protocol/openid-connect/token",
 		"vpncontroller",
 		"BMxjKIYZxqc3rJwWEci8TPO40mjVccls",
