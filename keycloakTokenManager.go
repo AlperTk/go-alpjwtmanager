@@ -2,6 +2,7 @@ package tokenmanager
 
 import (
 	"encoding/json"
+	"errors"
 	"github.com/Masterminds/log-go"
 	"io"
 	"net/http"
@@ -120,9 +121,15 @@ func (t *tokenManagerKeycloak) requestToken(data url.Values) error {
 		return err
 	} else {
 		bodyBytes, err := io.ReadAll(resp.Body)
+
 		if err != nil {
 			return err
 		}
+
+		if resp.StatusCode != http.StatusOK {
+			return errors.New("response not successful. statusCode: " + resp.Status + " response: " + string(bodyBytes))
+		}
+
 		_ = json.Unmarshal(bodyBytes, t.responseModel)
 		t.responseModel.ExpiredAt = time.Now().Unix() + t.responseModel.ExpiresIn
 		t.responseModel.RefreshExpiredAt = time.Now().Unix() + t.responseModel.RefreshExpiresIn
